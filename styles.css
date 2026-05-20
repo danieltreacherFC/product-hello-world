@@ -1,10 +1,10 @@
 :root {
-  --color-bg: #FF0000;
-  --color-surface: #FF0000;
-  --color-ink: #FFFF00;
-  --color-muted: #00FF00;
-  --color-accent: #00FF00;
-  --color-border: #FF00FF;
+  --color-bg: #F7F6F1;
+  --color-surface: #E8D5D0;
+  --color-ink: #6B5B56;
+  --color-muted: #9B9B7A;
+  --color-accent: #7BA3A8;
+  --color-border: #D9B5B0;
   --radius: 10px;
   --max-width: 720px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -96,6 +96,191 @@ a:hover {
   display: grid;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+/* MEGA CRAZY ANIMATIONS */
+@keyframes MEGA_SPIN {
+  from { transform: rotate(0deg) scaleX(1.2) skewY(10deg); }
+  50% { transform: rotate(180deg) scaleX(0.8) skewY(-10deg); }
+  to { transform: rotate(360deg) scaleX(1.2) skewY(10deg); }
+}
+
+@keyframes PSYCHO_PULSE {
+  0% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.2; transform: scale(1.3); }
+  50% { opacity: 1; transform: scale(0.7); }
+  75% { opacity: 0.3; transform: scale(1.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes EXTREME_BOUNCE {
+  0%, 100% { transform: translateY(0) rotateZ(0deg); }
+  25% { transform: translateY(-40px) rotateZ(45deg); }
+  50% { transform: translateY(20px) rotateZ(-45deg); }
+  75% { transform: translateY(-50px) rotateZ(90deg); }
+}
+
+@keyframes NEON_GLOW {
+  0% { color: #FFFF00; text-shadow: 0 0 10px #00FF00, 0 0 20px #FF00FF, 0 0 30px #00FFFF; }
+  25% { color: #00FF00; text-shadow: 0 0 20px #FF00FF, 0 0 30px #00FFFF, 0 0 40px #FFFF00; }
+  50% { color: #FF00FF; text-shadow: 0 0 30px #00FFFF, 0 0 40px #FFFF00, 0 0 50px #00FF00; }
+  75% { color: #00FFFF; text-shadow: 0 0 40px #FFFF00, 0 0 50px #00FF00, 0 0 60px #FF00FF; }
+  100% { color: #FFFF00; text-shadow: 0 0 10px #00FF00, 0 0 20px #FF00FF, 0 0 30px #00FFFF; }
+}
+
+@keyframes STROBE {
+  0%, 49%, 100% { opacity: 1; }
+  50%, 99% { opacity: 0.1; }
+}
+
+@keyframes WAVE_DISTORT {
+  0% { transform: skewX(0deg) skewY(0deg); }
+  25% { transform: skewX(10deg) skewY(-5deg); }
+  50% { transform: skewX(-10deg) skewY(10deg); }
+  75% { transform: skewX(5deg) skewY(-10deg); }
+  100% { transform: skewX(0deg) skewY(0deg); }
+}
+
+@keyframes FLIP_AROUND {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  33% { transform: rotateX(360deg) rotateY(180deg) rotateZ(45deg); }
+  66% { transform: rotateX(180deg) rotateY(360deg) rotateZ(90deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes CRAZY_POSITION {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(-20px, 10px); }
+  75% { transform: translate(15px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes SCALE_CHAOS {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.5); }
+  40% { transform: scale(0.5); }
+  60% { transform: scale(2); }
+  80% { transform: scale(0.7); }
+  100% { transform: scale(1); }
+}
+
+@keyframes RAINBOW_BG {
+  0% { background: #FF0000; }
+  17% { background: #FF7F00; }
+  33% { background: #FFFF00; }
+  50% { background: #00FF00; }
+  67% { background: #0000FF; }
+  84% { background: #4B0082; }
+  100% { background: #FF0000; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.55;
+  animation: RAINBOW_BG 5s infinite;
+}
+
+.hero__name {
+  font-size: 2.75rem;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  animation: NEON_GLOW 2s infinite, EXTREME_BOUNCE 1.5s infinite, FLIP_AROUND 3s infinite;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem;
+  animation: MEGA_SPIN 2s linear infinite, STROBE 1s infinite;
+}
+
+.hero__tagline {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  max-width: 560px;
+  margin: 0 0 1.5rem;
+  animation: PSYCHO_PULSE 1s infinite, WAVE_DISTORT 2s infinite;
+}
+
+.hero__nav a {
+  margin-right: 1.25rem;
+  font-weight: 600;
+  animation: CRAZY_POSITION 1s infinite, SCALE_CHAOS 1.5s infinite;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.hero__nav a:hover {
+  transform: scale(3) rotate(360deg);
+  text-decoration: none;
+  color: #FF00FF;
+  text-shadow: 0 0 30px #00FFFF, 0 0 60px #FFFF00;
+  font-size: 1.2em;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  animation: MEGA_SPIN 1.5s infinite, NEON_GLOW 2s infinite;
+  color: var(--color-accent);
+  text-shadow: 0 0 20px var(--color-border), 0 0 40px var(--color-accent);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.section {
+  animation: STROBE 2s infinite;
+}
+
+.hero {
+  animation: RAINBOW_BG 4s infinite;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.1s ease;
+  animation: NEON_GLOW 3s infinite;
+}
+
+a:hover {
+  text-decoration: underline;
+  transform: scale(2) rotate(720deg);
+  color: #FF00FF;
+  text-shadow: 0 0 30px var(--color-accent), 0 0 60px #00FFFF;
+}
+
+footer {
+  animation: RAINBOW_BG 3s infinite, STROBE 1.5s infinite;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.projects {
+  animation: WAVE_DISTORT 1.5s infinite, PSYCHO_PULSE 2s infinite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.55;
+  animation: RAINBOW_BG 5s infinite;
 }
 
 .project {
